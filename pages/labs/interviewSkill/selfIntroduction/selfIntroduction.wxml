@@ -1,0 +1,8 @@
+请输入自我介绍文本
+<textarea />
+<view wx:if="{{recordState}}">
+  <button type="primary" bindtap="startRecord">开始自我介绍</button>
+</view>
+<view wx:if="{{!recordState}}">
+  <button type="primary" bindtap="stopRecord">结束录制</button>
+</view>

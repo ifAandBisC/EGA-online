@@ -1,0 +1,48 @@
+.canvas {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+}
+
+.banner-body {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  color: white;
+}
+
+.banner-image {
+  position: inherit;
+  width: 100%;
+
+  z-index: 0;
+}
+
+.banner-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  
+  display: flex;
+  flex-direction: row;
+
+  z-index: 20;
+}
+
+.banner-inner-text {
+  margin: 3px;
+}
+
+.banner-inner-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 10;
+}

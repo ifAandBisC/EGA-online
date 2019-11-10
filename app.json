@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/labs/labs",
+    "pages/userCenter/userCenter",
+    "pages/labs/etiquetteDress/etiquetteDress",
+    "pages/labs/interviewSkill/selfIntroduction/selfIntroduction",
+    "pages/onlineTest/onlineTest"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/bottom-icon-training1.png",
+        "selectedIconPath": "images/bottom-icon-training1.png",
+        "text": "能力训练"
+      },
+      {
+        "pagePath": "pages/onlineTest/onlineTest",
+        "iconPath": "images/bottom-icon-test0.png",
+        "selectedIconPath": "images/bottom-icon-test0.png",
+        "text": "在线答题"
+      },
+      {
+        "pagePath": "pages/userCenter/userCenter",
+        "iconPath": "images/bottom-icon-user0.png",
+        "selectedIconPath": "images/bottom-icon-user0.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

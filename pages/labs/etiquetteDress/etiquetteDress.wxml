@@ -1,0 +1,8 @@
+<view>
+  <camera device-position="{{cameraPosition?'front':'back'}}" style="width: 100%; height: 300px;"></camera>
+  <button type="primary" bindtap="chosePhoto">选择图片</button>
+  <button type="primary" bindtap="takePhoto" error="error">拍摄</button>
+  <button type="primary" bindtap="switchCamera">切换摄像头</button>
+  
+  <image mode="widthFix" src="{{src}}"></image>
+</view>

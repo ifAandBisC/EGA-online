@@ -1,0 +1,5 @@
+/* pages/labs/labs.wxss */
+.containner {
+  position: fixed;
+  top: 50px;
+}
