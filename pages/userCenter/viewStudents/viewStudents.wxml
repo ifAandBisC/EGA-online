@@ -1,0 +1,44 @@
+<top-bar showButton="{{true}}" barTitle="学生列表"></top-bar>
+
+<view class="container">
+	<view class="students-container">
+		<block wx:for="{{studentList}}">
+			<view class="student-container" bindtap="switchWindow">
+				<view class="student-name">{{item.nickname}}</view>
+				<view class="student-number">{{item.schoolNumber}}</view>
+			</view>
+		</block>
+	</view>
+
+	<view class="detail-container" hidden="{{ !showWindow }}">
+		<image class="detail-background" src="../../../images/card_bg.png"></image>
+		<view class="detail">
+			<view class="detail-name">牛小明</view>
+			<view class="detail-row">
+				<view class="detail-title">学号：</view>
+				<view class="detail-content">3901170000</view>
+			</view>
+			<view class="detail-button" bindtap="removeStudent">移出班级</view>
+		</view>
+		<image class="detail-close" src="../../../images/close.png" bindtap="switchWindow"></image>
+	</view>
+</view>
+
+<!--
+	"createTime": 1573885944000,
+	"email": null,
+	"gender": 0,
+	"headUrl": null,
+	"majorClass": null,
+	"name": null,
+	"nickname": null,
+	"phone": null,
+	"qq": null,
+	"qrCode": null,
+	"schoolNumber": null,
+	"serial": 2,
+	"state": 1,
+	"userId": "db3f492261633c1457dc0bc9679c3caf",
+	"username": "10423313044132222303400432441031222230220222303044320303",
+	"wechatNumber": null
+-->

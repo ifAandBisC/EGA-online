@@ -1,1 +1,421 @@
-/* pages/userCenter/userCenter.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FBFEFF;
+}
+
+.banner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner-image {
+  position: inherit;
+  width: 100%;
+  height: 250rpx;
+  z-index: 100;
+}
+
+.banner-user-image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-top: -175rpx;
+  z-index: 500;
+}
+
+.banner-user-nickname {
+  color: white;
+  margin-top: 5rpx;
+  z-index: 500;
+}
+
+.banner-button {
+  height: 90rpx;
+  font-size: 20rpx;
+  color: #339999;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  z-index: 999;
+}
+
+.body {
+  width: 100%;
+  padding-top: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.class-container {
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+}
+
+.class-description {
+  width: 460rpx;
+  height: 130rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 2rpx 30rpx 0rpx rgba(0, 0, 0, 0.05);
+  border-radius: 12rpx;
+  padding-top: 20rpx;
+  padding-left: 35rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.class-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  line-height: 42rpx;
+  color: black;
+}
+
+.class-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 23rpx;
+  line-height: 36rpx;
+  font-size: 25rpx;
+  color: #6e6e6e;
+}
+
+.class-content {
+  margin-right: 75rpx;
+}
+
+.class-change {
+  color: #62dcd4;
+}
+
+.join-container {
+  width: 150rpx;
+  height: 150rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 2rpx 30rpx 0rpx rgba(0, 0, 0, 0.05);
+  border-radius: 12rpx;
+  margin-left: 25rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.join-button {
+  width: 65rpx;
+  height: 65rpx;
+  margin-top: 20rpx;
+}
+
+.join-content {
+  font-size: 20rpx;
+  line-height: 28rpx;
+  margin-top: 17rpx;
+}
+
+.papers-container {
+  width: 635rpx;
+  height: 120rpx;
+  margin-top: 25rpx;
+  padding-left: 35rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.papers-titll {
+  font-size: 30rpx;
+  color: rgba(0, 0, 0, 1);
+  line-height: 42px;
+}
+
+.papers-navigate {
+  position: absolute;
+  width: 61rpx;
+  height: 61rpx;
+  right: 60rpx;
+}
+
+.exams-container {
+  position: fixed;
+  margin: 347rpx auto;
+  z-index: 999;
+}
+
+.exams-background {
+  width: 550rpx;
+  height: 690rpx;
+  border-radius: 28rpx;
+  box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.exams-title {
+  position: absolute;
+  top: 33rpx;
+  left: 50rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  z-index: 1010;
+}
+
+.exams-list {
+  position: absolute;
+  top: 80rpx;
+  left: 28rpx;
+  width: 480rpx;
+  height: 500rpx;
+  z-index: 1010;
+}
+
+.exam-each {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 18rpx;
+  padding: 18rpx 15rpx;
+  color: #555555;
+  border: 1rpx solid #50AAB1;
+  z-index: 1011;
+}
+
+.exam-name {
+  margin-left: 10rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  width: 240rpx;
+  z-index: 1012;
+}
+
+.exam-state {
+  margin-left: 12rpx;
+  font-size: 20rpx;
+  width: 250rpx;
+  z-index: 1012;
+}
+
+.exams-close {
+  position: absolute;
+  top: 600rpx;
+  left: 244rpx;
+  width: 70rpx;
+  height: 70rpx;
+  z-index: 1010;
+}
+
+
+
+.teacher-class {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.teacher-class-info {
+  width: 465rpx;
+  height: 320rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 2rpx 30rpx 0rpx rgba(0, 0, 0, 0.05);
+  border-radius: 12rpx;
+  padding-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.teacher-class-row {
+  width: 430rpx;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.teacher-class-edit {
+  height: 320rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.teacher-class-title {
+  font-size: 26rpx;
+  line-height: 42rpx;
+  font-weight: lighter;
+  color: black;
+}
+
+.teacher-class-content {
+  font-size: 40rpx;
+  font-weight: bold;
+  line-height: 50rpx;
+  font-family: webfont;
+  color: #333;
+}
+
+.teacher-class-bottom-row {
+  width: 430rpx;
+  margin-top: 2rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.teacher-class-link {
+  font-size: 26rpx;
+  color: #84E5C5;
+}
+
+.teacher-class-icon {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 20rpx;
+  box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.1);
+}
+
+.teacher-paper {
+  margin-top: 60rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.teacher-view-papers {
+  width: 465rpx;
+  height: 150rpx;
+  margin-left: 25rpx;
+  padding-left: 35rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 12rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.teacher-view-students {
+  width: 640rpx;
+  height: 150rpx;
+  margin-top: 60rpx;
+  padding-left: 35rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 12rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.add-class-column {
+  position: absolute;
+  top: 60rpx;
+  left: 50rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  z-index: 1010;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.add-class-row {
+  margin-top: 60rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.add-class-input {
+  width: 340rpx;
+  height: 90rpx;
+  border-bottom: 1rpx solid #91DBE5;
+  font-weight: normal;
+}
+
+.add-class-button {
+  height: 90rpx;
+  width: 120rpx;
+  font-size: 30rpx;
+  color: #339999;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  z-index: 1010;
+}
+
+
+.paper-list-title {
+  position: absolute;
+  top: 33rpx;
+  left: 50rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  z-index: 1011;
+}
+
+.paper-list-list {
+  position: absolute;
+  top: 80rpx;
+  left: 28rpx;
+  width: 480rpx;
+  height: 500rpx;
+  z-index: 1010;
+}
+
+.paper-list-each {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 18rpx;
+  padding: 16rpx 15rpx;
+  font-size: 25rpx;
+  color: #555555;
+  border: 1rpx solid #50AAB1;
+  z-index: 1011;
+}
+
+.paper-list-add {
+  display: flex;
+  justify-content: space-around;
+  margin: 18rpx;
+  padding: 16rpx 15rpx;
+  font-size: 25rpx;
+  color: #555555;
+  border: 1rpx solid #50AAB1;
+  z-index: 1011;
+}
+
+.paper-list-name {
+  margin-left: 10rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  width: 250rpx;
+  z-index: 1012;
+}
+
+.paper-list-time {
+  margin-left: 12rpx;
+  width: 134rpx;
+  z-index: 1012;
+}
+
+.paper-list-state {
+  margin-left: 12rpx;
+  width: 180rpx;
+  z-index: 1012;
+}

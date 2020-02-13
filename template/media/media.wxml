@@ -1,0 +1,9 @@
+<template name="questionMedias">
+  <block wx:for="{{medias}}" wx:for-item="media">
+    <view>
+      <image wx:if="{{media.type == '图片'}}" src="{{media.content}}" mode="widthFix" />
+      <video wx:if="{{media.type == '视频'}}" src="{{media.content}}" controls="{{true}}" />
+      <audio wx:if="{{media.type == '音频'}}" src="{{media.content}}" controls="{{true}}" />
+    </view>
+  </block>
+</template>

@@ -1,8 +1,12 @@
-<view>
-  <camera device-position="{{cameraPosition?'front':'back'}}" style="width: 100%; height: 300px;"></camera>
+<top-bar  barTitle="{{lab.labName}}" barContent=" "></top-bar>
+
+<view class="container">
+  <!-- <camera device-position="{{cameraPosition?'front':'back'}}" class="camera"></camera>
   <button type="primary" bindtap="chosePhoto">选择图片</button>
   <button type="primary" bindtap="takePhoto" error="error">拍摄</button>
   <button type="primary" bindtap="switchCamera">切换摄像头</button>
   
-  <image mode="widthFix" src="{{src}}"></image>
+  <image mode="widthFix" src="{{src}}"></image> -->
+  <image src="/images/img_blank.png" class="blank-image"></image>
+  <view class="blank-text">功能尚未开放</view>
 </view>

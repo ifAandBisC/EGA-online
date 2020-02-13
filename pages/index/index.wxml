@@ -1,21 +1,21 @@
-<class />
+<class id="classHeader" />
 
 <view class="container">
   <view wx:for="{{labList}}" wx:key="{{index}}">
-    <template is="labList" data="{{...item}}" />
+    <template is="labList" data="{{item}}" />
   </view>
 
-  <template name="labList"> 
-    <view bindtap="navigate" data-lab="{{labName}}" style="z-index:5500;">
-      <view>
-        <image src="{{labIcon}}"></image>
-      </view>
-      <view>
-        <view>{{labName}}</view>
-        <view>{{labDescription}}</view>
-      </view>
-      <view>
-        <image src="../../images/bar_arrow.png"></image>
+  <template name="labList">
+    <view bindtap="navigate" data-lab="{{item}}" class="lab-container">
+      <image src="../../images/lab_bg.png" class="lab-background" />
+      <view class="lab-info">
+        <image src="{{item.labIcon}}" class="lab-icon" />
+        <view class="lab-describtion">
+          <view class="lab-name">{{item.labName}}</view>
+          <view class="lab-content">{{item.labDescription1}}</view>
+          <view class="lab-content">{{item.labDescription2}}</view>
+        </view>
+        <image src="../../images/bar_arrow.png" class="lab-navigate" />
       </view>
     </view>
   </template>

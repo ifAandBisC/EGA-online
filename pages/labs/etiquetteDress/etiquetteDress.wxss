@@ -1,1 +1,13 @@
 /* pages/labs/etiquetteDress/etiquetteDress.wxss */
+.container {
+   margin-top: 162rpx;
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.camera {
+  width: 100%; 
+  height: 440px;
+}

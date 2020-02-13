@@ -1,35 +1,65 @@
+const app=getApp()
+
 Component({
   pageLifetimes: {
     show: function () {
-      this.drawBanner()
-      var that = this
-      wx.getSystemInfo({
-        success: function (res) {
-          that.setData({
-            ww: res.windowWidth,
-            wh: res.windowHeight
-          })
-        }
-      })
-      // banner 高度：
-      var bh = this.data.wh / 6
-      this.setData({
-        className: "形象班02班",
-        teacher: "刘艾佳"
-      })
-      /*
-        bannerWidth: this.data.ww,
-        bannerHeight: bh,
-        innerSide: this.data.ww / 8,
-        innerTop: bh / 4,
-        innerWidth: 3 * this.data.ww /4,
-        innerHeight: bh / 2
-      */
+      // this.drawBanner()
+      this.freshClass();
     }
   },
+  lifetimes: {
+    attached: function () {
+      // this.freshClass();
+    }
+  },
+  data: {
+    
+  },
   methods: {
+    freshClass: function () {
+      let classInfo = app.globalData.classInfo
+      console.log("Header of classes on show component:");
+      console.log(classInfo);
+      if (classInfo.classList.length > 0) {
+        this.setData({
+          className: classInfo.classList[classInfo.selected].className,
+          teacher: classInfo.classList[classInfo.selected].teacherName
+        });
+      }
+    },
+    changeClass: function () {
+      let that = this;
+      let classInfo = app.globalData.classInfo;
+      console.log("Header of classes on changeClass button clicked:")
+      console.log(classInfo)
+      let classNameList = classInfo.classList.map(function (e) { return e.className; });
+      console.log(classNameList);
+      if (classNameList.length == 0) {
+        wx.showToast({
+          title: '暂未加入班级',
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+      wx.showActionSheet({
+        itemList: classNameList,
+        success: function (res) {
+          classInfo.selected = res.tapIndex
+          console.log(classInfo.selected)
+          that.setData({
+            className: classInfo.classList[res.tapIndex].className,
+            teacher: classInfo.classList[res.tapIndex].teacherName
+          })
+
+          // 触发使用组件页面所监听的事件
+          that.triggerEvent('changeClass');
+        }
+      });
+    },
+
+    // suxj:当初想用Canvas画banner，但wx的Canvas太垃圾了，不得不放弃，但又不舍得删代码
     drawBanner: function () {
-      var that = this
+      let that = this
       wx.getSystemInfo({
         success: function (res) {
           that.setData({
@@ -38,11 +68,11 @@ Component({
           })
         }
       })
-      var ww = this.data.windowWidth
-      var wh = this.data.windowHeight
-      var ctx = wx.createCanvasContext('canvas',this)// 这个this很重要，不加将不在组件内查找canvas
+      let ww = this.data.windowWidth
+      let wh = this.data.windowHeight
+      let ctx = wx.createCanvasContext('canvas',this)// 这个this很重要，不加将不在组件内查找canvas
       // banner 高度：
-      var ch = 3 * wh / 5 - 0.4 * wh
+      let ch = 3 * wh / 5 - 0.4 * wh
       this.setData({
         bannerWidth: ww,
         bannerHeight: ch,

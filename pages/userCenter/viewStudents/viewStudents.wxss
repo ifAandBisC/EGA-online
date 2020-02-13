@@ -1,0 +1,112 @@
+
+.container {
+  margin-top: 170rpx;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.students-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.student-container {
+  border-radius: 80rpx;
+  margin-top: 36rpx;
+  width: 200rpx;
+  height: 200rpx;
+  background-color: #11FFBD;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.student-name {
+  font-size: 42rpx;
+  font-weight: 600;
+  color: #555555;
+}
+
+.student-number {
+  margin-top: 8rpx;
+  font-size: 26rpx;
+  color: gray;
+}
+
+.detail-container {
+  position: fixed;
+  margin: 120rpx auto;
+  z-index: 999;
+}
+
+.detail-background {
+  width: 550rpx;
+  height: 690rpx;
+  border-radius: 34rpx;
+  box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.detail-close {
+  position: absolute;
+  top: 600rpx;
+  left: 244rpx;
+  width: 70rpx;
+  height: 70rpx;
+  z-index: 1020;
+}
+
+.detail {
+  position: absolute;
+  top: 28rpx;
+  width: 550rpx;
+  padding: 16rpx 60rpx;
+  z-index: 1020;
+}
+
+.detail-name {
+  z-index: 1030;
+  font-size: 60rpx;
+  font-weight: bold;
+  margin-top: 60rpx;
+  color: #333;
+}
+
+.detail-row {
+  margin-top: 26rpx;
+  z-index: 1030;
+  display: flex;
+  flex-direction: row;
+}
+
+.detail-title {
+  z-index: 1040;
+  width: 180rpx;
+  font-size: 36rpx;
+}
+
+.detail-content {
+  z-index: 1040;
+  font-size: 36rpx;
+}
+
+.detail-button {
+  z-index: 1030;
+  width: 220rpx;
+  height: 70rpx;
+  margin: 200rpx 108rpx;
+  border-radius: 20rpx;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

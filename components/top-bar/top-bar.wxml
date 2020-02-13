@@ -1,0 +1,8 @@
+<cover-view class="tab-bar">
+  <!-- <cover-view class="tab-bar-border"></cover-view>-->
+  <cover-image wx:if="{{button}}" src="/images/bar_arrow2.png" class="navigate-back" bindtap="navigateBack"></cover-image>
+  <cover-view class="inner">
+    <cover-view class="top-bar-title">{{title}}</cover-view>
+    <cover-view class="top-bar-content">{{content}}</cover-view>
+  </cover-view>
+</cover-view>

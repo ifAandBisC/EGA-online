@@ -1,0 +1,68 @@
+
+.container {
+   margin-top: 240rpx;
+   margin-bottom: 130rpx;
+}
+
+.lab-container {
+  width: 100%;
+  height: 250rpx;
+  margin-top: -50rpx;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  z-index: 700;
+}
+
+.lab-background {
+  position: absolute;
+  height: 250rpx;
+  width: 680rpx;
+}
+
+.lab-info {
+  position: relative;
+  left: 0;
+  right: 0;
+  height: 250rpx;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #333;
+}
+
+.lab-icon {
+  position: absolute;
+  left: 10rpx;
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.lab-describtion {
+  position: absolute;
+  left: 180rpx;
+}
+
+.lab-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  padding: auto 10rpx;
+  color: #333;
+}
+
+.lab-content {
+  font-size: 20rpx;
+  color: #999999;
+  margin-top: 6rpx;
+}
+
+.lab-navigate {
+  position: absolute;
+  right: 35rpx;
+  width: 80rpx;
+  height: 80rpx;
+}

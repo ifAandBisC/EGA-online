@@ -1,16 +1,17 @@
 <view class="banner-body">
-  <!--<cover-image src="../../images/bg_head.png" class="banner-image" style="height:{{bannerHeight}}px;" />-->
+  <image src="../../images/bg_head.png" class="banner-image" style="height:{{bannerHeight}}px;" />
 
-  <canvas canvas-id="canvas" class="canvas" style="position:fixed;">
-    <cover-view style="margin:{{innerTop}}px {{innerSide}}px 0px {{innerSide}}px;">
-      <!--<cover-image src="../../images/class_card_bg.png" class="banner-inner-image" style="margin:{{innerTop}}px {{innerSide}}px 0px {{innerSide}}px;width:{{innerWidth}}px;height:{{innerHeight}}px" />-->
-      <cover-view class="banner-inner" style="margin:{{innerTop}}px {{innerSide}}px 0px {{innerSide}}px;">
-        <cover-view>
-          <cover-view class="banner-inner-text">当前班级：{{className}}</cover-view>
-          <cover-view class="banner-inner-text">授课老师：{{teacher}} 老师</cover-view>
-        </cover-view>
-        <button type="primary" bindtap="">切换班级</button>
+  <!--<canvas canvas-id="canvas" class="canvas" style="position:fixed;"></canvas>-->
+  <view>
+    <cover-image src="../../images/class_card_bg.png" class="banner-inner-image" />
+    <cover-view class="banner-inner">
+      <button class="banner-button" bindtap="changeClass">
+        <cover-view class="banner-button-text">切换班级</cover-view>
+      </button>
+      <cover-view>
+        <cover-view class="banner-inner-text">当前班级：{{className}}</cover-view>
+        <cover-view class="banner-inner-text">授课老师：{{teacher}} 老师</cover-view>
       </cover-view>
     </cover-view>
-  </canvas>
+  </view>
 </view>

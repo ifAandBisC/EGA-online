@@ -1,11 +1,15 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/labs/labs",
     "pages/userCenter/userCenter",
     "pages/labs/etiquetteDress/etiquetteDress",
     "pages/labs/interviewSkill/selfIntroduction/selfIntroduction",
-    "pages/onlineTest/onlineTest"
+    "pages/onlineTest/onlineTest",
+    "pages/userCenter/transcript/transcript",
+    "pages/onlineTest/exam/exam",
+    "pages/userCenter/newPaper/newPaper",
+    "pages/userCenter/viewStudents/viewStudents",
+    "pages/userCenter/newExam/newExam"
   ],
   "window": {
     "backgroundTextStyle": "light",

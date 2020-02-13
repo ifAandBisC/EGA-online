@@ -1,0 +1,74 @@
+<import src="/template/media/media.wxml" />
+
+<template name="question">
+  <!-- 单选题 -->
+  <block wx:if="{{item.questionType == 0}}">
+    <view class="problem">
+      <view class="problem-title">{{index + 1}}.
+        <image class="problem-icon" src="/images/icon_single.png" /> {{item.title}}</view>
+      <template wx:if="{{item.medias.length > 0}}" is="questionMedias" data="{{...item}}" />
+      <radio-group class="problem-list" bindchange="doAnswer">
+        <block wx:for="{{item.options}}" wx:for-index="questionIndex" wx:for-item="questionItem">
+          <radio class="problem-choice" value="{{questionIndex}}" disabled="{{isTranscript}}">
+            <image wx:if="{{item.optionType == '图片'}}" mode="widthFix" src="{{questionItem}}" />
+            <block wx:else>{{idx[questionIndex]}}. {{questionItem}}</block>
+          </radio>
+        </block>
+      </radio-group>
+    </view>
+  </block>
+
+  <!-- 多选题 -->
+  <block wx:elif="{{item.questionType == 1}}">
+    <view class="problem">
+      <view class="problem-title">
+        {{index + 1}}.
+        <image class="problem-icon" src="/images/icon_multi.png"></image> {{item.title}}</view>
+      <template wx:if="{{item.medias.length > 0}}" is="questionMedias" data="{{...item}}" />
+      <checkbox-group class="problem-list" bindchange="doAnswer">
+        <block wx:for="{{item.options}}" wx:for-index="questionIndex" wx:for-item="questionItem">
+          <checkbox class="problem-choice" value="{{questionIndex}}" disabled="{{isTranscript}}">{{idx[questionIndex]}}. {{questionItem}}</checkbox>
+        </block>
+      </checkbox-group>
+    </view>
+  </block>
+  
+  <!-- 判断题 -->
+  <block wx:if="{{item.questionType == 2}}">
+    <view class="problem">
+      <view class="problem-title">{{index + 1}}.
+        <image class="problem-icon" src="/images/icon_single.png" /> {{item.title}}</view>
+      <template wx:if="{{item.medias.length > 0}}" is="questionMedias" data="{{...item}}" />
+      <radio-group class="problem-list" bindchange="doAnswer">
+        <block wx:for="{{ ['对','错'] }}" wx:for-index="questionIndex" wx:for-item="questionItem">
+          <radio class="problem-choice" value="{{questionIndex}}" disabled="{{isTranscript}}"><block>{{idx[questionIndex]}}. {{questionItem}}</block></radio>
+        </block>
+      </radio-group>
+    </view>
+  </block>
+
+  <!-- 简答题 -->
+  <block wx:elif="{{item.questionType == 3}}">
+    <view class="problem">
+      <view class="problem-title">{{index + 1}}. {{item.title}}</view>
+      <template wx:if="{{item.medias.length > 0}}" is="questionMedias" data="{{...item}}" />
+      <view class="answer-container">
+        <textarea maxlength="-1" class="answer-input" show-confirm-bar="{{true}}" bindblur="doAnswer" hold-keyboard="{{true}}" bindinput="doAnswer" disabled="{{isTranscript}}"></textarea>
+      </view>
+    </view>
+  </block>
+
+  <!-- 答案及解析 -->
+  <view class="analysis-container" wx:if="{{isTranscript}}">
+    <view class="{{ item.questionType==3?'analysis-subject':'analysis-choice'}}">
+      <view class="analysis-title">正确答案：</view>
+      <view class="{{ item.questionType==3?'analysis-subject-context':'analysis-context'}}">{{item.answer}}</view>
+      <view class="analysis-title">你的答案：</view>
+      <view class="{{ item.questionType==3?'analysis-subject-context':'analysis-context'}}">{{item.myAnswer}}</view>
+    </view>
+    <view class="analysis-analysis" wx:if="{{ item.parse.length > 0 }}">
+      <view class="analysis-title">解析：</view>
+      <view class="analysis-subject-context">{{item.parse}}</view>
+    </view>
+  </view>
+</template>

@@ -1,2 +1,30 @@
-<!--pages/onlineTest/onlineTest.wxml-->
-<text>pages/onlineTest/onlineTest.wxml</text>
+<class bindchangeClass="freshExams" />
+
+<view wx:if="{{isEmpty}}" class="blank-containner">
+  <image src="/images/img_blank.png" class="blank-image"></image>
+  <view class="blank-text">{{className}} 暂无考试</view>
+</view>
+
+<view wx:else class="container">
+  <view wx:for="{{examList}}">
+    <template is="examList" data="{{item}}"></template>
+  </view>
+</view>
+
+<template name="examList">
+  <view bindtap="navigate" data-exam="{{item}}" class="exam-container">
+    <image src="/images/lab_bg.png" class="exam-background" />
+    <view class="exam-info">
+      <view class="exam-describtion">
+        <view class="exam-name">{{item.examName}}</view>
+        <view class="exam-detail">任课教师：{{item.teacherName}}</view>
+        <view class="exam-detail">截止时间：{{item.endTime}}</view>
+      </view>
+      <image wx:if="{{ item.examStudentState == '已完成' }}" src="/images/complete.png" class="exam-end"></image>
+      <image wx:elif="{{ item.examState == '已结束' }}" src="/images/end.png" class="exam-end"></image>
+      <!-- <image wx:elif="{{ item.examState == '未开始' }}" src="/images/unstarted.png" class="exam-end"></image> -->
+      <image wx:else src="/images/running.png" class="exam-end"></image>
+      <image src="/images/bar_arrow.png" class="exam-navigate" />
+    </view>
+  </view>
+</template>

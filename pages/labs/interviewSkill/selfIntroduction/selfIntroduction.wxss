@@ -1,1 +1,7 @@
-/* pages/labs/interviewSkill/self-introduction/self-introduction.wxss */
+.container {
+   margin-top: 162rpx;
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}

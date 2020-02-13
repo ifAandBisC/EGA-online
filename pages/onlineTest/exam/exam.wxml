@@ -1,0 +1,40 @@
+<import src="/template/question/question.wxml" />
+
+<top-bar showButton="{{false}}" barTitle="{{exam.examName}}"></top-bar>
+
+<view class="container">
+  <swiper current="{{currentIndex}}" class="problem-container" bindchange="problemChange">
+    <block wx:for="{{questionList}}" wx:key="{{index}}">
+      <swiper-item>
+        <scroll-view style='height:100%;' scroll-y>
+          <template is="question" data="{{item,index,idx}}"></template>
+        </scroll-view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class="progress-shadow" hidden="{{progressHidden}}">
+  <scroll-view class="progress-container">
+    <view class="progress-display">
+      <block wx:for="{{questionList}}" wx:key="{{index}}">
+        <view class="progress-each {{ index==currentIndex?'current':( item.studentAnswer.length>0?'done':'undone' ) }}" bindtap="switchQuestion" data-index="{{index}}">{{index+1}}</view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+
+<cover-view class="tab-bar">
+  <cover-view class="tab-bar-item">
+    <cover-image src="../../../images/time.png"></cover-image>
+    <cover-view>{{clock}}</cover-view>
+  </cover-view>
+  <cover-view class="tab-bar-item" bindtap="showProgress">
+    <cover-image src="../../../images/progress.png"></cover-image>
+    <cover-view>{{progress}}/{{questionList.length}}</cover-view>
+  </cover-view>
+  <cover-view class="tab-bar-item" bindtap="submitExam">
+    <cover-image src="../../../images/submit.png"></cover-image>
+    <cover-view>交卷</cover-view>
+  </cover-view>
+</cover-view>

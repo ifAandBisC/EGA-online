@@ -1,0 +1,64 @@
+<import src="/template/question/question.wxml" />
+
+<top-bar showButton="{{true}}" barTitle="{{exam.examName}}"></top-bar>
+
+<view class="container">
+  <swiper current="{{currentIndex}}" class="problem-container" bindchange="problemChange">
+    <block wx:for="{{questionList}}">
+      <swiper-item>
+        <scroll-view style='height:100%;' scroll-y>
+          <template is="question" data="{{item,index,idx,isTranscript}}"></template>
+        </scroll-view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class="progress-shadow" hidden="{{detailHidden}}">
+  <scroll-view class="progress-container">
+    <view class="transcript-title">作答报告：</view>
+    <view class="transcript-detail">
+      <view class="transcript-exam-name">{{exam.examName}}</view>
+      <view class="transcript-info">
+        <view>
+          <view class="transcript-teacher-name">教师：{{exam.teacherName}}</view>
+          <view class="transcript-submit-time">
+            <view>交卷时间：</view><!-- endTime是不对的，后期数据加上要改！！！ -->
+            <view class="transcript-submit-content">{{exam.endTime}}</view>
+          </view>
+        </view>
+        <view class="transcript-score" wx:if="{{exam.state == '已批改'}}">
+          <view class="transcript-score-item">
+            <view class="transcript-score-title">客观题：</view>
+            <view class="transcript-score-value">{{exam.autoScore}}</view>
+          </view>
+          <view class="transcript-score-item">
+            <view class="transcript-score-title">主观题：</view>
+            <view class="transcript-score-value">{{exam.manualScore}}</view>
+          </view>
+          <view class="transcript-score-item">
+            <view class="transcript-score-title">总成绩：</view>
+            <view class="transcript-score-sum">{{exam.score}}</view>
+          </view>
+        </view>
+        <view class="transcript-score" wx:else>
+          <view class="transcript-score-item">
+            <view class="transcript-score-value">未批改</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="progress-display">
+      <block wx:for="{{questionList}}" wx:key="{{index}}">
+        <view class="progress-each {{ index==currentIndex?'current':( item.studentAnswer.length>0?'done':'undone' ) }}" bindtap="switchQuestion" data-index="{{index}}">{{index+1}}</view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+
+<cover-view class="tab-bar">
+  <cover-view class="tab-bar-item" bindtap="showProgress">
+    <cover-image src="../../../images/transcript.png"></cover-image>
+    <cover-view>作答报告</cover-view>
+  </cover-view>
+</cover-view>

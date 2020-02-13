@@ -6,6 +6,7 @@
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
@@ -18,11 +19,12 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.1",
-	"appid": "wx2fce0fccab2cda82",
+	"libVersion": "2.9.2",
+	"appid": "wxe201f1d93158cb86",
 	"projectname": "EGA-online",
 	"debugOptions": {
 		"hidedInDevtools": []

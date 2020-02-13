@@ -3,7 +3,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 48px;
+  height: 130rpx;
   background: white;
   display: flex;
   padding-bottom: env(safe-area-inset-bottom);
@@ -29,10 +29,12 @@
 }
 
 .tab-bar-item cover-image {
-  width: 27px;
-  height: 27px;
+  width: 48rpx;
+  height: 48rpx;
+  margin: 10rpx auto;
 }
 
 .tab-bar-item cover-view {
-  font-size: 15px;
+  font-size: 20rpx;
+  margin-bottom: rpx;
 }

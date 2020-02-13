@@ -1,2 +1,124 @@
-<!--pages/userCenter/userCenter.wxml-->
-<text>pages/userCenter/userCenter.wxml</text>
+<view class="container">
+	<view class="banner">
+		<image src="../../images/bg_head.png" class="banner-image" />
+		<image class="banner-user-image" src="{{userInfo.avatarUrl}}"></image>
+		<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="banner-button"> 获取头像昵称 </button>
+		<view class="banner-user-nickname">{{userInfo.nickName}}</view>
+	</view>
+
+	<!-- Student -->
+	<view wx:if="{{!isTeacher}}" class="body">
+		<view class="class-container">
+			<view class="class-description">
+				<view class="class-title">当前班级：</view>
+				<view class="class-info" wx:if="{{className}}">
+					<view class="class-content">{{className}}</view>
+					<view class="class-content">{{teacher}}老师</view>
+					<view class="class-change" bindtap="changeClass">切换</view>
+				</view>
+				<view class="class-title" wx:else>
+
+				</view>
+			</view>
+			<view class="join-container" bindtap="scanCode">
+				<image class="join-button" src="../../images/scan.png"></image>
+				<view class="join-content">扫码进班</view>
+			</view>
+		</view>
+
+		<view class="papers-container" bindtap="showExams">
+			<view class="papers-titll">查看已提交试卷</view>
+			<image class="papers-navigate" src="../../images/paper_btn.png"></image>
+		</view>
+	</view>
+
+	<!-- Teacher -->
+	<view wx:if="{{isTeacher}}" class="body">
+		<view class="teacher-class">
+			<view class="teacher-class-info">
+				<view class="">
+					<view class="teacher-class-title">当前班级：</view>
+					<view class="teacher-class-content">{{className}}</view>
+				</view>
+				<view class="teacher-class-row">
+					<view class="teacher-class-title">学生人数：</view>
+					<view class="teacher-class-content">60人</view>
+					<view class="teacher-class-link">查看</view>
+				</view>
+				<view class="teacher-class-bottom-row">
+					<view class="teacher-class-link">获取班级二维码</view>
+					<image src="../../images/edit.png" class="teacher-class-icon"></image>
+				</view>
+			</view>
+			<view class="teacher-class-edit">
+				<view class="join-container" bindtap="showAddClass">
+					<image class="join-button" src="../../images/add.png"></image>
+					<view class="join-content">添加班级</view>
+				</view>
+				<view class="join-container" bindtap="changeClass">
+					<image class="join-button" src="../../images/switch.png"></image>
+					<view class="join-content">切换班级</view>
+				</view>
+			</view>
+		</view>
+		<view class="teacher-paper">
+			<view class="join-container" style="margin-left:0;" bindtap="addExam">
+				<image class="join-button" src="../../images/add-new.png"></image>
+				<view class="join-content">添加考试</view>
+			</view>
+			<view class="teacher-view-papers" bindtap="showPapers">
+				<view class="papers-titll">查看试卷</view>
+				<image class="papers-navigate" src="../../images/paper_btn.png"></image>
+			</view>
+		</view>
+		<view class="teacher-view-students" bindtap="toStudentList">
+			<view class="papers-titll">查看学生列表</view>
+			<image class="papers-navigate" src="../../images/paper_btn.png"></image>
+		</view>
+	</view>
+
+	<view class="papers-container" style="margin-top:90rpx;" bindtap="switchRole">
+		<view class="papers-titll">切换功能</view>
+		<image class="papers-navigate" src="../../images/paper_btn.png"></image>
+	</view>
+
+	<!-- 消息弹窗 -->
+	<view class="exams-container" wx:if="{{showWindow}}">
+		<image class="exams-background" src="../../images/card_bg.png">
+			<!-- 学生：试卷列表 -->
+			<block wx:if="{{examWindow}}">
+				<view class="exams-title">所有试卷</view>
+				<view wx:if="{{!examList.length}}" class="exams-list">当前暂无已提交试卷</view>
+				<scroll-view wx:else class="exams-list" scroll-y="{{true}}" scroll-top="0">
+					<view wx:for="{{examList}}" data-exam="{{item}}" class="exam-each" bindtap="showTranscript">
+						<view class="exam-name">{{item.examName}}</view>
+						<view class="exam-state">状态：{{item.state}}</view>
+					</view>
+				</scroll-view>
+			</block>
+			<!-- 教师：添加班级 -->
+			<view class="add-class-column" wx:if="{{addClassWindow}}">
+				<view class="">班级名称：</view>
+				<view class="add-class-row">
+					<input class="add-class-input" auto-focus placeholder="请输入班级名称" />
+					<button class="add-class-button">添加</button>
+				</view>
+			</view>
+			<!-- 教师：试卷列表 -->
+			<block wx:if="{{paperWindow}}">
+				<view class="paper-list-title">所有试卷：</view>
+				<scroll-view class="paper-list-list" scroll-y="{{true}}" scroll-top="0">
+					<view wx:for="{{paperList}}" data-exam="{{item}}" class="paper-list-each" bindtap="">
+						<view class="paper-list-name">{{item.name}}</view>
+						<view class="paper-list-time">{{item.createTime}}</view>
+					</view>
+					<view wx:if="{{!paperList.length}}" class="paper-list-each" style="border: 0; justify-content: space-around;">当前暂无试卷</view>
+					<view class="paper-list-add" bindtap="addPaper">添加新试卷</view>
+				</scroll-view>
+			</block>
+
+			<image class="exams-close" src="../../images/close.png" bindtap="closeWindow"></image>
+		</image>
+	</view>
+
+</view>

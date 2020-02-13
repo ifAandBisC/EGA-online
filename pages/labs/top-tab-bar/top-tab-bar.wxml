@@ -1,7 +1,0 @@
-<!--pages/labs/top-tab-bar/top-tab-bar.wxml-->
-<cover-view class="tab-bar">
-  <cover-view class="tab-bar-border"></cover-view>
-  <cover-view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
-    <cover-view style="color: {{tSelected === index ? tSelectedColor : color}}">{{item.text}}</cover-view>
-  </cover-view>
-</cover-view>

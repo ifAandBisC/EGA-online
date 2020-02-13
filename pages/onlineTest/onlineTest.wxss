@@ -1,1 +1,75 @@
-/* pages/onlineTest/onlineTest.wxss */
+
+.container {
+  margin-top: 240rpx;
+  margin-bottom: 120rpx;
+}
+
+.exam-container {
+  width: 100%;
+  height: 250rpx;
+  margin-top: -50rpx;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  z-index: 700;
+}
+
+.exam-background {
+  position: absolute;
+  height: 250rpx;
+  width: 680rpx;
+}
+
+.exam-info {
+  position: relative;
+  height: 250rpx;
+  top: -8rpx;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #333;
+}
+
+.exam-describtion {
+  position: absolute;
+  left: 180rpx;
+}
+
+.exam-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  padding: auto 10rpx;
+  color: #333;
+}
+
+.exam-detail {
+  font-size: 20rpx;
+  color: #999999;
+  margin-top: 6rpx;
+}
+
+.exam-end {
+  margin-top: -60rpx;
+  margin-left: 40rpx;
+  width: 96rpx;
+  height: 30rpx;
+}
+
+.exam-navigate {
+  position: absolute;
+  right: 30rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.blank-containner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 250rpx;
+}

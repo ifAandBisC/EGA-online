@@ -1,0 +1,126 @@
+<top-bar checkClose="{{true}}" showButton="{{true}}" barTitle="试卷信息："></top-bar>
+
+<view class="container">
+  <view class="question-detail">
+    <view class="question-detail-row">
+      <view class="question-detail-title" style="font-weight:bold;">试卷标题：</view>
+      <input class="question-detail-input" placeholder="  请输入试卷标题" bindinput="inputPaperTitle" />
+    </view>
+  </view>
+
+  <!-- 单选题 -->
+  <block wx:for="{{questionList}}" wx:key="index">
+    <view wx:if="{{item.questionType == 0 || item.questionType == 2}}" class="question-detail">
+      <view class="question-detail-type">
+        {{index + 1}}.
+        <image class="question-add-icon" src="/images/icon_single.png"></image>
+      </view>
+      <view class="question-detail-row">
+        <view class="question-detail-title">题目：</view>
+        <input class="question-detail-input" placeholder="  请输入题目" data-index="{{index}}" bindinput="inputTitle" />
+        <!-- <image wx:if="{{item.titleError}}" class="warn-icon" src="/images/warn.png"></image> -->
+      </view>
+      <view class="question-detail-row">
+        <view class="question-detail-title">选项：</view>
+        <!-- <image wx:if="{{item.optionError}}" class="warn-icon" src="/images/warn.png"></image> -->
+      </view>
+      <radio-group class="question-list">
+        <radio wx:for="{{item.optionList}}" wx:for-index="optIndex" data-index="{{ {index,optIndex} }}" bindtap="setAnswer">
+          <view class="question-list-row">
+            <view class="question-option-serial">{{serial[optIndex]}}.</view>
+            <input class="question-option-input" placeholder="  请输入选项内容" data-index="{{ {index,optIndex} }}" value="{{item}}" bindinput="inputOption"></input>
+            <image class="question-delete-icon" src="/images/delete.png" data-index="{{ {index,optIndex} }}" bindtap="deleteOption"></image>
+          </view>
+        </radio>
+        <view class="question-list-note">
+          <view wx:if="{{ item.answer != null && item.optionList.length }}">答案：{{serial[item.answer]}}</view>
+          <view wx:else>请勾选正确答案</view>
+          <view class="question-option-add" data-idx="{{index}}" bindtap="addOption">添加选项</view>
+        </view>
+      </radio-group>
+      <view class="question-analysis-row">
+        <view class="question-detail-title">解析：</view>
+        <textarea maxlength="-1" class="question-textarea" placeholder="  选填" data-index="{{index}}" bindinput="inputParse"></textarea>
+      </view>
+      <view class="question-list">
+        <view class="question-question-delete" data-idx="{{index}}" bindtap="deleteQuestion">删除题目</view>
+      </view>
+    </view>
+
+    <!-- 多选题 -->
+    <view wx:elif="{{item.questionType == 1}}" class="question-detail">
+      <view class="question-detail-type">
+        {{index + 1}}.
+        <image class="question-add-icon" src="/images/icon_multi.png"></image>
+      </view>
+      <view class="question-detail-row">
+        <view class="question-detail-title">题目：</view>
+        <input class="question-detail-input" placeholder="  请输入题目" data-index="{{index}}" bindinput="inputTitle" />
+        <!-- <image wx:if="{{item.titleError}}" class="warn-icon" src="/images/warn.png"></image> -->
+      </view>
+      <view class="question-detail-row">
+        <view class="question-detail-title">选项：</view>
+        <!-- <image wx:if="{{item.optionError}}" class="warn-icon" src="/images/warn.png"></image> -->
+      </view>
+      <checkbox-group class="question-list">
+        <checkbox wx:for="{{item.optionList}}" wx:for-index="optIndex" data-index="{{ {index,optIndex} }}" bindtap="setAnswers">
+          <view class="question-list-row">
+            <view class="question-option-serial">{{serial[optIndex]}}.</view>
+            <input class="question-option-input" placeholder="  请输入选项内容" data-index="{{ {index,optIndex} }}" value="{{item}}" bindinput="inputOption"></input>
+            <image class="question-delete-icon" src="/images/delete.png" data-index="{{ {index,optIndex} }}" bindtap="deleteOption"></image>
+          </view>
+        </checkbox>
+        <view class="question-list-note">
+          <view wx:if="{{ !item.answer.length || !item.optionList.length }}">请勾选正确答案</view>
+          <view wx:else>答案：{{item.answer}}</view>
+          <view class="question-option-add" data-idx="{{index}}" bindtap="addOption">添加选项</view>
+        </view>
+      </checkbox-group>
+      <view class="question-analysis-row">
+        <view class="question-detail-title">解析：</view>
+        <textarea maxlength="-1" class="question-textarea" placeholder="  选填" data-index="{{index}}" bindinput="inputParse"></textarea>
+      </view>
+      <view class="question-list">
+        <view class="question-question-delete" data-idx="{{index}}" bindtap="deleteQuestion">删除题目</view>
+      </view>
+    </view>
+
+    <!-- 主观题 -->
+    <view wx:elif="{{item.questionType == 3}}" class="question-detail">
+      <view class="question-detail-type">
+        {{index + 1}}.
+        <image class="question-add-icon" src="/images/icon_sub.png"></image>
+      </view>
+      <view class="question-detail-row">
+        <view class="question-detail-title">题目：</view>
+        <input class="question-detail-input" placeholder="  请输入题目" data-index="{{index}}" bindinput="inputTitle" />
+        <!-- <image wx:if="{{item.titleError}}" class="warn-icon" src="/images/warn.png"></image> -->
+      </view>
+      <view class="question-analysis-row">
+        <view class="question-detail-title">答案：</view>
+        <textarea maxlength="-1" class="question-textarea" placeholder="  请输入参考答案" data-index="{{index}}" bindinput="inputAnswer"></textarea>
+      </view>
+      <view class="question-analysis-row">
+        <view class="question-detail-title">解析：</view>
+        <textarea maxlength="-1" class="question-textarea" placeholder="  选填" data-index="{{index}}" bindinput="inputParse"></textarea>
+      </view>
+      <view class="question-list">
+        <view class="question-question-delete" data-idx="{{index}}" bindtap="deleteQuestion">删除题目</view>
+      </view>
+    </view>
+  </block>
+
+  <view class="question-add-container">
+    <view class="line"></view>
+    添加：
+    <image class="question-add-icon" src="/images/icon_single.png" bindtap="addSingle" />
+    <image class="question-add-icon" src="/images/icon_multi.png" bindtap="addMulti" />
+    <image class="question-add-icon" src="/images/icon_sub.png" bindtap="addSubjective" />
+    <view class="line"></view>
+  </view>
+
+  <view class="question-add-container">
+    <view class="paper-save" bindtap="checkPaper">检查试卷</view>
+    <view class="paper-save" bindtap="savePaper">保存试卷</view>
+  </view>
+</view>

@@ -1,0 +1,70 @@
+<top-bar checkClose="{{true}}" showButton="{{true}}" barTitle="考试信息："></top-bar>
+<view class="container" hidden="{{detailHidden}}">
+  <form class="progress-container">
+    <view class="exam-detail">
+      <view class="exam-detail-row">
+        <view class="exam-detail-title">考试名：</view>
+        <input class="exam-detail-input" auto-focus placeholder="请输入考试名" />
+      </view>
+
+      <view class="exam-detail-row">
+        <view class="exam-detail-title">考试时限：</view>
+        <view class="exam-time-limit">
+          <view wx:if="{{showTimeLimit && (minute||hour)}}">
+            <block wx:if="{{ hour > 0 }}">{{hour}}小时</block>{{minute}}分钟</view>
+        </view>
+        <switch checked="{{false}}" bindchange="switchTimeLimit" />
+      </view>
+      <picker-view wx:if="{{showTimeLimit}}" indicator-style="height: 50px;" class="exam-time-limit-picker-container" value="{{limitTime}}" bindchange="changeTimeLimit">
+        <picker-view-column style="line-height: 50px">
+          <view wx:for="{{hours}}">{{item}} 小时</view>
+        </picker-view-column>
+        <picker-view-column style="line-height: 50px">
+          <view wx:for="{{minutes}}">{{item}} 分钟</view>
+        </picker-view-column>
+      </picker-view>
+
+      <view class="exam-detail-row">
+        <view class="exam-detail-title">截止日期：</view>
+        <view class="exam-time-limit">
+          <picker wx:if="{{hasDateLimit}}" mode="date" value="{{date}}" start="{{date}}" bindchange="changeDateLimit">
+            <view class="picker">{{date}}</view>
+          </picker>
+        </view>
+        <switch checked="{{false}}" bindchange="switchDateLimit" />
+      </view>
+
+      <view class="exam-detail-row">
+        <view class="exam-detail-title">考试试卷：</view>
+        <view class="exam-paper-name">{{paper.name}}线性代数期中考试卷</view>
+        <view class="exam-paper-button" bindtap="closeWindow">选择试卷</view>
+      </view>
+
+      <view class="exam-save-container">
+        <image src="/images/btn_ok.png" class="exam-save-background"></image>
+        <view class="exam-save-text">保存</view>
+      </view>
+
+      <!-- <view class="exam-detail-row">
+        <view class="exam-paper-button" bindtap="">保存试卷</view>
+      </view> -->
+    </view>
+  </form>
+
+  <!-- 消息弹窗 -->
+  <view class="paper-list-container" wx:if="{{showWindow}}">
+    <image class="paper-list-background" src="/images/card_bg.png">
+      <!-- 试卷列表 -->
+      <view class="paper-list-title">所有试卷：</view>
+      <scroll-view class="paper-list-list" scroll-y="{{true}}" scroll-top="0">
+        <view wx:for="{{paperList}}" data-exam="{{item}}" class="paper-list-each" bindtap="">
+          <view class="paper-list-name">{{item.name}}</view>
+          <view class="paper-list-time">{{item.createTime}}</view>
+        </view>
+        <view class="paper-list-add" bindtap="addPaper">添加新试卷</view>
+      </scroll-view>
+      <image class="paper-list-close" src="/images/close.png" bindtap="closeWindow"></image>
+    </image>
+  </view>
+
+</view>

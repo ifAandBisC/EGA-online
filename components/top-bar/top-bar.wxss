@@ -1,0 +1,39 @@
+.tab-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+  background: whitesmoke;
+  padding-top: 65rpx;
+  padding-bottom: env(safe-area-inset-bottom);
+  z-index: 999;
+}
+
+.navigate-back {
+  top: 35rpx;
+  position: fixed;
+  width: 100rpx;
+  height: 100rpx;
+  margin: 20rpx;
+  z-index: 1000;
+}
+
+.inner {
+  margin: 10rpx;
+}
+
+.top-bar-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  padding: auto 10rpx;
+  color: #333;
+  text-align:center;
+}
+
+.top-bar-content {
+  font-size: 20rpx;
+  color: #666;
+  margin-top: 6rpx;
+  text-align:center;
+}
